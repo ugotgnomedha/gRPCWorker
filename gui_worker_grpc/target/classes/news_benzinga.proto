@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message benzinga_news{
+  repeated string tickers_benzinga = 1;
+}
+service benzinga_notify {
+  rpc news_benzinga(google.protobuf.Empty) returns (stream benzinga_news);
+}

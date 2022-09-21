@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+message screenerTickers{
+  repeated string tickers = 1;
+}
+
+service UploadTickers {
+  rpc upload (screenerTickers) returns (google.protobuf.Empty);
+}

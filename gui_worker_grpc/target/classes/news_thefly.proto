@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message fly_news{
+  repeated string tickers_fly = 1;
+  repeated string links_fly = 2;
+}
+
+service fly_notify {
+  rpc news_thefly(google.protobuf.Empty) returns (stream fly_news);
+}
