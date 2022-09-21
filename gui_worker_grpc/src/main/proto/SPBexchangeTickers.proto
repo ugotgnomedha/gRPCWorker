@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+message workerReplySpb{
+  repeated string spbexchange_upload_date = 1;
+  repeated string spbexchange_tickers = 2;
+  repeated string spbexchange_market_cap = 3;
+  repeated string spbexchange_dividend_date = 4;
+}
+
+service SPBexTickerGiver {
+  rpc spbexchange (google.protobuf.Empty) returns (workerReplySpb);
+}

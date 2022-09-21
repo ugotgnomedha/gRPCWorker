@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message settingsRequestYahoo {
+  int32 divident_before = 1;
+  int32 divident_after = 2;
+  int32 statistics_before = 3;
+  string currency = 4;
+  int64 capitalization_lowest = 5;
+  int32 news_ignore = 6;
+  string news_type = 7;
+  int32 news_remove_time = 8;
+}
+
+message workerReplyYahoo {
+  repeated string yahoo_upload_date = 1;
+  repeated string yahoo_tickers = 2;
+  repeated string yahoo_market_cap = 3;
+  repeated string yahoo_dividend_date = 4;
+}
+
+service YahooTickerGiver {
+  rpc yahoo (settingsRequestYahoo) returns (workerReplyYahoo);
+}
